@@ -1,0 +1,74 @@
+<html>
+
+     <head>
+
+          <title> Three.js Practice </title>
+
+          <style>
+               body {margin: 0;}
+               canvas {display: block;}
+          </style>
+
+     </head>
+
+     <body>
+
+          <script src="js/three.js"></script>
+
+          <script>
+               var scene = new THREE.Scene();
+
+               var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, .1, 1000);
+               var renderer = new THREE.WebGLRenderer();
+
+               renderer.setSize(window.innerWidth, window.innerHeight);
+               document.body.appendChild(renderer.domElement);
+
+               var geometry = new THREE.BoxBufferGeometry(1, 1, 1);
+               var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+               var mesh = new THREE.Mesh(geometry, material);
+               mesh.position.set(2, 2, 0);
+
+               //scene.add(mesh);
+
+               //var geometry2 = new THREE.SphereGeometry(1, 4, 10);
+               //var material2 = new THREE.Mesh.LambertMaterial({color: 0xFFCC00});
+
+               var material2 = new THREE.MeshBasicMaterial({color: 0xff0000});
+               var mesh2 = new THREE.Mesh(geometry, material2);
+               mesh2.position.set(-2, -2, 0);
+
+               var material3 = new THREE.MeshBasicMaterial({color: 0x0000ff});
+               var mesh3 = new THREE.Mesh(geometry, material3);
+               mesh3.position.set(0, 0, 0);
+
+               var group = new THREE.Group();
+               group.add(mesh);
+               group.add(mesh2);
+               group.add(mesh3);
+
+               scene.add(group);
+
+               camera.position.z = (5);
+
+               var animate = function() {
+                    requestAnimationFrame(animate);
+
+                    mesh.rotation.x += .01;
+                    mesh.rotation.y += .01;
+
+                    mesh2.rotation.x += .01;
+                    mesh2.rotation.y += .01;
+
+                    mesh3.rotation.x += .01;
+                    mesh3.rotation.y += .01;
+
+                    renderer.render(scene,camera);
+               }
+
+               animate();
+          </script>
+
+     </body>
+
+</html>
