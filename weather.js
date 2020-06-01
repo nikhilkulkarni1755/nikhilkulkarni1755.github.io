@@ -12,7 +12,7 @@ function init() {
 }
 
 function newCity(city) {
-     $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=1606253280c81f3eeef2dde78882f19a", function(data) {
+     $.getJSON("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=1606253280c81f3eeef2dde78882f19a", function(data) {
 
           //const createDiv = (icon, weather, temp, city, country) =>`<div class="WeatherInfo" id="city${}">`;
           //The API provides pics for the specific weather.
