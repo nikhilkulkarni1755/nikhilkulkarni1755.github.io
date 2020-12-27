@@ -1,0 +1,21 @@
+body {
+     background-color: ivory;
+
+}
+
+.weatherInfo {
+     background: aquamarine;
+     text-align: center;
+}
+
+.weather, .city, .country {
+     font-size: 22px;
+     margin: 0;
+     font-style: italic;
+}
+
+.temp {
+     font-size: 60px;
+     margin: 0;
+     font-weight: bold;
+}

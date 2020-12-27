@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+     <title> Weather API </title>
+
+     <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous">
+      </script>
+     <script src="weather.js"> </script>
+     <link rel="stylesheet" href="weather.css">
+
+</head>
+
+<p>
+Enter US cities.
+</p>
+
+<body>
+
+     <!-- <p> Enter the name of an American city for weather info. </p>
+     <input type="text" id="cityInput" value="Enter a city name">-->
+
+     <label for="cityInput">City:</label>
+     <input type="text" id="cityInput" name="cityInput">
+
+     <button onclick="init()">Enter</button>
+
+     <div class="weatherInfo">
+          <img class="icon">
+          <p class="weather"></p>
+          <p class="temp"></p>
+          <p class="city"></p>
+          <p class="country"></p>
+     </div>
+
+
+</body>
+
+<p>
+
+Taken from
+<a href="https://youtu.be/InoAIgBZIEA" target="_blank">https://youtu.be/InoAIgBZIEA</a>
+
+
+</p>
+
+</html>
