@@ -2,13 +2,13 @@
 
 
 function init() {
-     var x = document.getElementById("cityInput").value;
-     console.log(x + "logged.");
+	var x = document.getElementById("cityInput").value;
+     	console.log(x + "logged.");
 
-     var city = x + ",us";
-     console.log(city);
+     	var city = x + ",us";
+     	console.log(city);
 
-     newCity(city);
+     	newCity(city);
 }
 
 function newCity(city) {
@@ -17,23 +17,23 @@ function newCity(city) {
           //const createDiv = (icon, weather, temp, city, country) =>`<div class="WeatherInfo" id="city${}">`;
           //The API provides pics for the specific weather.
           //Therefore we try and obtain said pics.
-          var icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+		var icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
 
-          var weather = data.weather[0].description;
+          	var weather = data.weather[0].description;
 
-          var temp = Math.ceil(data.main.temp) + "\xB0 F";
+          	var temp = Math.ceil(data.main.temp) + "\xB0 F";
 
-          var city = data.name;
+          	var city = data.name;
 
-          var country = data.sys.country;
+          	var country = data.sys.country;
 
-          $('.icon').attr('src', icon);
-          $('.weather').append(weather);
-          $('.temp').append(temp);
-          $('.city').append(city);
-          $('.country').append(country);
+          	$('.icon').attr('src', icon);
+          	$('.weather').append(weather);
+          	$('.temp').append(temp);
+          	$('.city').append(city);
+          	$('.country').append(country);
 
 
 
-     });
+	});
 }
