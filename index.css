@@ -1,20 +1,17 @@
 body {
 	background-image: url("Water.jpg");
 	background-repeat: no-repeat;
-	background-attachment: fixed;
+	background-attachment:fixed;
 	background-size: cover;
-}
-
-body {
 	text-align: center;
 	font-size: 50px;
 	font-weight: bold;
 }
 
-p {
-	background-color: LightCyan;
+.aClass {
+	background-color: lightcyan;
 	opacity: .5;
-	font-weight: normal;
+	font-weight: bold;
 	font-size: 40px;
 
 }
