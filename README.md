@@ -1,2 +1,2 @@
 # nikhilkulkarni1755.github.io
-Personal Website created using HTML, JS and CSS.
+Personal Website created using HTML, JS and CSS by hosting on Github.
