@@ -19,3 +19,20 @@ body {
 	margin: 0;
 	font-weight: bold;
 }
+
+#description {
+	font-size:x-large;
+}
+
+#b {
+	background-color: aquamarine;
+	
+	border-color:black; 
+
+	padding: 20px 40px;
+
+	font-size: 18px;
+
+	cursor: pointer;
+
+}
