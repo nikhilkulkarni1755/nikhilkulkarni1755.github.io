@@ -19,25 +19,24 @@
 	<div>
 		<p>Nikhil Kulkarni</p>	
 		<hr style="height:3px;border:none;color:#FFFF00;background-color:#333;" />
-		<a href="weather/weather2.html"> IP Address Weather </a> &nbsp &nbsp <a href="weather/weather.html"> Check the Weather </a> &nbsp &nbsp <a href="test2.html"> Rotating Cubes </a>
+		<a href="weather/weather2.html"> IP Address Weather </a> &nbsp &nbsp <a href="test2.html"> Rotating Cubes </a>
 &nbsp &nbsp <a href="https://github.com/nikhilkulkarni1755"> Github </a> &nbsp &nbsp <a href="https://www.linkedin.com/in/nikhilkulkarni1755/"> Linkedin </a> &nbsp &nbsp <a href="resume30.pdf"> My Resume </a>
 	</div>	 
 
 </body>
 
 <p id="ip"></p>
-	<script type="application/javascript">
-	function getIP(json) {
-	  var ip = "Welcome from " + json.ip + ", " + json.city + ", " + json.region + ", " + json.country;
-	  //var ip = "hi";
-	  document.getElementById("ip").innerHTML = ip;
-	}
+<script type="application/javascript">
+function getIP(json) {
+	var ip = "Welcome from " + json.ip + ", " + json.city + ", " + json.region + ", " + json.country;
+	//var ip = "hi";
+	document.getElementById("ip").innerHTML = ip;
+}
 
-	//document.getElementById("ip").innerHTML = ip;
+//document.getElementById("ip").innerHTML = ip;
+</script>
 
-  	</script>
-
-  	<script type="application/javascript" src="http://ipinfo.io/?format=jsonp&callback=getIP"></script>
+<script type="application/javascript" src="http://ipinfo.io/?format=jsonp&callback=getIP"></script>
 
 <p id="source"> IP info found using https://ipinfo.io/developers </p>
 <body>
