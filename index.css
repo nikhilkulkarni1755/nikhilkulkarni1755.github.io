@@ -20,7 +20,7 @@ a {
 	font-size: 30px;
 }
 
-#demo {
+#demo,#ip, #source {
 	background-color: lightcyan;
 	opacity: .5;
 	font-weight: bold;

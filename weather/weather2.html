@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<title> Smarter Weather API </title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous">
+    </script>
+    <script src="weather2.js"> </script>
+    <link rel="stylesheet" href="weather.css">
+
+
+
+</head>
+
+<script type="application/javascript" src="http://ipinfo.io/?format=jsonp&callback=getIP"></script>
+
+<body>
+
+        Click to check the weather in your city, based on your IP Address (Only US cities supported for now)
+     	<button onclick="init()">Enter</button>
+
+     	<div class="weatherInfo">
+        	<img class="icon">
+          	<p class="weather"></p>
+          	<p class="temp"></p>
+          	<p class="city"></p>
+          	<p class="country"></p>
+     	</div>
+
+
+</body>
+
+</html>

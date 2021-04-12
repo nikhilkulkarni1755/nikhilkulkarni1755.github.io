@@ -1,11 +1,21 @@
-function init() {
-	var x = document.getElementById("cityInput").value;
-     	console.log(x + "logged.");
+var city;
 
-     	var city = x + ",us";
-     	console.log(city);
+async function init() {
+	//var x = document.getElementById("cityInput").value;
 
-     	newCity(city);
+    const request = await fetch("https://ipinfo.io/json?token=319a65acfd0824");
+    const json = await request.json();
+
+    //console.log(jsonResponse.ip, jsonResponse.city);
+    //city = jsonResponse.city;
+    console.log(json.ip, json.city);
+    city = json.city;
+    console.log(city + " logged.");
+
+    var place = city + ",us";
+    console.log(place);
+
+    newCity(place);
 }
 
 function newCity(city) {
