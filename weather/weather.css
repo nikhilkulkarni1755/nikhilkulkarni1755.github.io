@@ -26,7 +26,7 @@ body {
 
 #b {
 	background-color: aquamarine;
-	
+	border: none;
 	border-color:black; 
 
 	padding: 20px 40px;
@@ -36,3 +36,12 @@ body {
 	cursor: pointer;
 
 }
+
+#v1 {
+	background-color: aquamarine;
+	border-color: black;
+	padding: 20px 20px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
