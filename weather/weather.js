@@ -14,7 +14,7 @@ function newCity(city) {
           //const createDiv = (icon, weather, temp, city, country) =>`<div class="WeatherInfo" id="city${}">`;
           //The API provides pics for the specific weather.
           //Therefore we try and obtain said pics.
-		var icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+		var icon = "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
 
           	var weather = data.weather[0].description;
 
