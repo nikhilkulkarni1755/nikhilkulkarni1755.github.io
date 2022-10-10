@@ -3,7 +3,7 @@ var city;
 async function init() {
 	//var x = document.getElementById("cityInput").value;
 
-    const request = await fetch("https://ipinfo.io/json?token=319a65acfd0824");
+    
     const json = await request.json();
 
     //console.log(jsonResponse.ip, jsonResponse.city);
@@ -18,6 +18,7 @@ async function init() {
     newCity(place);
 }
 
+//jQuery to add data from api to html
 function newCity(city) {
      $.getJSON("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=1606253280c81f3eeef2dde78882f19a", function(data) {
 
@@ -35,10 +36,14 @@ function newCity(city) {
           	var country = data.sys.country;
 
           	$('.icon').attr('src', icon);
-          	$('.weather').append(weather);
-          	$('.temp').append(temp);
-          	$('.city').append(city);
-          	$('.country').append(country);
+               $('.weather').html(weather);
+               $('.temp').html(temp);
+               $('.city').html(city);
+               $('.country').html(country);
+          	//$('.weather').append(weather);
+          	//$('.temp').append(temp);
+          	//$('.city').append(city);
+          	//$('.country').append(country);
 
 
 

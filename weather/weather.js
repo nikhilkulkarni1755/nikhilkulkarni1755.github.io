@@ -25,6 +25,7 @@ function newCity(city) {
           	var country = data.sys.country;
 
           	$('.icon').attr('src', icon);
+			$('.weather').attr(weather);
           	$('.weather').append(weather);
           	$('.temp').append(temp);
           	$('.city').append(city);

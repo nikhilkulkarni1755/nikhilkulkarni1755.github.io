@@ -1,0 +1,23 @@
+#content {
+    background-color: whitesmoke;
+}
+
+h1 {
+    font-family: Arial;
+}
+
+button {
+    font-family: Arial;
+}
+
+input {
+    size: 40;
+    font-family: Arial;
+}
+
+body {
+    font-family: Arial;
+    text-align: center;
+    font-size: 20px;
+}
+
