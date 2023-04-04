@@ -40,6 +40,7 @@ function populate() {
         console.log('size is ' + size)
         console.log('size is 0')
     }
+    document.getElementById("postIt").focus()
     
     
 }
