@@ -46,6 +46,7 @@ function populate() {
 
 function postIt() {
     var post = document.getElementById("postIt").value
+    document.getElementById("postIt").value=""
     //console.log(post)
     let clone = document.getElementById("post").cloneNode(true);
     clone.innerHTML = post

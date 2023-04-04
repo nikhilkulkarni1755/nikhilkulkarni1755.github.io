@@ -9,8 +9,28 @@
 //title
 //description
 
-function isAuthor() {
+function isAuthor(author) {
+    var count = 0
+    console.log('ELIJAH WOOD!')
+    for(let i = 0; i < author.length; i++) {
+        for(let j = 0; j < author[i].length; j++) {
+            console.log(j + ") " + author[i][j])
+        }
+    }
 
+    for(let i = 0; i < author.length; i++) {
+        for(let j = 0; j < author[i]; j++) {
+            author[i][j].toUpperCase()
+        }
+    }
+
+    for(let i = 0; i < author.length; i++) {
+        for(let j = 0; j < author[i]; j++) {
+            console.log(author[i][j])
+        }
+    }
+    
+    return true;
 }
 
 function apiCall() {
@@ -45,12 +65,19 @@ function apiCall() {
 
 
             //Object.keys(myObject).length
+
+            var author = []
             document.getElementById("content").innerHTML += "<br>Number of results: " + Object.keys(text.items).length
             for(var i = 0; i < Object.keys(text.items).length; i++) {
                 document.getElementById("content").innerHTML += "<br>" + (i+1) + ")" + text.items[i].volumeInfo.title + "<br>"
                 document.getElementById("content").innerHTML += "<br>" + text.items[i].volumeInfo.authors + "<br>"
+                author.push(text.items[i].volumeInfo.authors)
                 document.getElementById("content").innerHTML += "<br>" + text.items[i].volumeInfo.description + "<br>" + "<br>" + "<br>"
             }
+            if(isAuthor(author)) {
+                console.log("Found author!")
+            }
+
         }
         else {
             document.getElementById("content").innerHTML = "<br>" + request.status + ", Try again"
