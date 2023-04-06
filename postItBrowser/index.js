@@ -89,16 +89,26 @@ function saveLocally(number, post) {
 }
 
 function clearScreen() {
-    let size = window.localStorage.getItem(0+'')
-    if(size == '0') {
-        console.log('size is 0')
-        window.localStorage.clear()
-        window.localStorage.setItem(0 + '', "0")
+    
+    if(confirm("Delete all your notes?")) {
+        let size = window.localStorage.getItem(0+'')
+        if(size == '0') {
+            console.log('size is 0')
+            window.localStorage.clear()
+            window.localStorage.setItem(0 + '', "0")
+        }
+        else {
+            console.log('size is greater than 0')
+            window.localStorage.clear()
+            window.localStorage.setItem(0 + '', "0")
+        }
+
+        console.log('User wanted to delete all previous notes!')
     }
     else {
-        console.log('size is greater than 0')
-        window.localStorage.clear()
-        window.localStorage.setItem(0 + '', "0")
+        console.log('User accidentally pressed delete all')
     }
+
+    
 
 }
