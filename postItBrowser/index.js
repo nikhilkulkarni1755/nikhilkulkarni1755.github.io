@@ -1,16 +1,3 @@
-
-const textarea = document.getElementById("postIt")
-const submitButton = document.getElementById("submit")
-
-if(textarea) {
-    textarea.addEventListener('keyup', (e) =>  {
-        if(e.keyCode === 13) {
-            console.log('inside the fxn atleast')
-            submitButton.click()
-        }
-    })
-}
-
 function populate() {
     let size = window.localStorage.getItem(0 + '')
     if(size == null) {
