@@ -15,8 +15,15 @@
 
 <body onload="populate()">
     <div>
-        <textarea id="postIt"></textarea>
-        <input id="submit" type="button" value="Post It!" onclick="postIt()"> 
+        <!--<textarea id="postIt" placeholder="Type your notes here!"></textarea>-->
+        <!--<input type="text" id="postIt" placeholder="Type your notes here!">-->
+        <textarea id="postIt" placeholder="Type your notes here!" onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }"></textarea>
+
+
+        <input id="submit" type="submit" value="Post It!" onclick="postIt()">
+        <!--<input id="submit" type="button" value="Post It!" onclick="postIt()"> -->
+
+        <input id="deleteAll" type="submit" value="Delete all!" onclick="clearScreen()">
     </div>
     <div id="post">
     </div>

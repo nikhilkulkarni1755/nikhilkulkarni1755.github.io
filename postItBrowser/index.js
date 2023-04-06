@@ -1,3 +1,16 @@
+
+const textarea = document.getElementById("postIt")
+const submitButton = document.getElementById("submit")
+
+if(textarea) {
+    textarea.addEventListener('keyup', (e) =>  {
+        if(e.keyCode === 13) {
+            console.log('inside the fxn atleast')
+            submitButton.click()
+        }
+    })
+}
+
 function populate() {
     let size = window.localStorage.getItem(0 + '')
     if(size == null) {
@@ -40,13 +53,11 @@ function populate() {
         console.log('size is ' + size)
         console.log('size is 0')
     }
-    document.getElementById("postIt").focus()
-    
-    
+    document.getElementById("postIt").focus()   
 }
 
 function postIt() {
-    var post = document.getElementById("postIt").value
+    post = document.getElementById("postIt").value
     document.getElementById("postIt").value=""
     //console.log(post)
     let clone = document.getElementById("post").cloneNode(true);
@@ -73,10 +84,21 @@ function postIt() {
 function saveLocally(number, post) {
     //console.log('storing in ' + number)
     window.localStorage.setItem(number + '', post)
-    clearScreen()
+    //clearScreen()
     populate()
 }
 
 function clearScreen() {
-    //document.getElementById("post").removeChild()
+    let size = window.localStorage.getItem(0+'')
+    if(size == '0') {
+        console.log('size is 0')
+        window.localStorage.clear()
+        window.localStorage.setItem(0 + '', "0")
+    }
+    else {
+        console.log('size is greater than 0')
+        window.localStorage.clear()
+        window.localStorage.setItem(0 + '', "0")
+    }
+
 }
