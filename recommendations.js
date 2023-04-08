@@ -11,10 +11,11 @@
 
 function isAuthor(author) {
     var count = 0
-    console.log('ELIJAH WOOD!')
+    var counter = 0
     for(let i = 0; i < author.length; i++) {
         for(let j = 0; j < author[i].length; j++) {
-            console.log(j + ") " + author[i][j])
+            counter += 1
+            console.log(counter + ") " + author[i][j])
         }
     }
 
@@ -24,11 +25,15 @@ function isAuthor(author) {
         }
     }
 
+    console.log('This is not printing out!')
+
     for(let i = 0; i < author.length; i++) {
         for(let j = 0; j < author[i]; j++) {
             console.log(author[i][j])
         }
     }
+
+    console.log('Or above is not printing out!')
     
     return true;
 }
