@@ -1,10 +1,12 @@
 var city;
+var weatherKey = config.OPEN_WEATHER_KEY;
+var ipKey = config.IP_INFO_KEY;
+console.log(weatherKey + ", " + ipKey)
 
 async function init() {
 	//var x = document.getElementById("cityInput").value;
-
-    
-    const json = await request.json();
+     const request = await fetch("https://ipinfo.io/json?token="+ipKey)
+     const json = await request.json()
 
     //console.log(jsonResponse.ip, jsonResponse.city);
     //city = jsonResponse.city;
@@ -20,7 +22,7 @@ async function init() {
 
 //jQuery to add data from api to html
 function newCity(city) {
-     $.getJSON("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial", function(data) {
+     $.getJSON("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=" + weatherKey, function(data) {
 
           //const createDiv = (icon, weather, temp, city, country) =>`<div class="WeatherInfo" id="city${}">`;
           //The API provides pics for the specific weather.

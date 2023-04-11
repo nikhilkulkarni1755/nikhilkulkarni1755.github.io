@@ -21,8 +21,15 @@ a {
 }
 
 #demo,#ip, #source {
-	background-color: lightcyan;
 	opacity: .5;
+}
+
+#info {
+	text-decoration: none;
+}
+
+#demo,#ip, #source, #info {
+	background-color: lightcyan;
 	font-weight: bold;
 	font-size: 50px;
 }
