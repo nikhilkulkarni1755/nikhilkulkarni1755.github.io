@@ -1,7 +1,7 @@
 var city;
 var weatherKey = config.OPEN_WEATHER_KEY;
 var ipKey = config.IP_INFO_KEY;
-console.log(weatherKey + ", " + ipKey)
+//these keys don't show up even when printing them. Clearly we need to use a server to send the hidden API keys and then send to the frontend. 
 
 async function init() {
 	//var x = document.getElementById("cityInput").value;

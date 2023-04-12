@@ -16,12 +16,45 @@
 		<script src="js/three.js"></script>
 
 		<script>
+
+			//SCENE
 			var scene = new THREE.Scene();
 
-			var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, .1, 1000);
-			var renderer = new THREE.WebGLRenderer();
+			//camera
+			var camera = new THREE.PerspectiveCamera(
+				75, 
+				window.innerWidth/window.innerHeight,
+				 .1,
+				 1000
+			);
+
+			//camera positioning. By default (if not mentioned), position will be 0,0,0
+			camera.position.x = 0
+			camera.position.y = 0
+			camera.position.z = 5
+
+			//renderer
+			var renderer = new THREE.WebGLRenderer(); //new THREE.WebGLRenderer({antialias: true});
+
+			//clear color, grey. 
+			//renderer.setClearColor("#e5e5e5")
+
+			//black background
+			renderer.setClearColor("#000000")
+
+			//setSize of renderer
 			renderer.setSize(window.innerWidth, window.innerHeight);
+
+			//append
 			document.body.appendChild(renderer.domElement);
+
+			//this currently doesn't resize, will add below
+			window.addEventListener('resize', () => {
+				renderer.setSize(window.innerWidth, window.innerHeight)
+				camera.aspect = window.innerWidth/window.innerHeight
+				camera.updateProjectionMatrix()
+			})
+
 
 			var geometry = new THREE.BoxBufferGeometry(1, 1, 1);
 			var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
@@ -48,7 +81,7 @@
 
                		scene.add(group);
 
-               		camera.position.z = (5);
+               		//camera.position.z = (5);
 
                		var animate = function() {
                     		requestAnimationFrame(animate);
