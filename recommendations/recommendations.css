@@ -11,8 +11,10 @@ button {
 }
 
 input {
-    size: 40;
+    /* size: 100; */
+    width: 15%;
     font-family: Arial;
+    text-align: center;
 }
 
 body {
