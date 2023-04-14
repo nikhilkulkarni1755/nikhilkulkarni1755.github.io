@@ -9,6 +9,16 @@
 //title
 //description
 
+let defQuery = ''
+
+function init() {
+    let exampleTexts = ['The Idiot', 'The Alchemist', 'War And Peace', 'The Sun Also Rises', 'Anna Karenina', 'Storm of Swords', 'Goblet of Fire', 'Antigone', 'The Night Thoreau Spent in Jail', 'Rabindranath Tagore', 'The Picture of Dorian Gray']
+
+    let index = Math.floor(Math.random() * (exampleTexts.length - 0) + 0)
+    document.getElementById('searchQuery').placeholder = exampleTexts[index]
+    defQuery = exampleTexts[index]
+}
+
 function isAuthor(author) {
     var count = 0
     var counter = 0
@@ -41,7 +51,7 @@ function isAuthor(author) {
 function apiCall() {
     var query = document.getElementById("searchQuery").value
     if(query == '') {
-        query = 'War And Peace'
+        query = defQuery
     }
     console.log(query)
     document.getElementById("content").innerHTML = '';

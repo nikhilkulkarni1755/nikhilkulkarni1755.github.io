@@ -5,8 +5,9 @@
         <title>Fiction Books API</title>
         <link rel="stylesheet" href="recommendations.css">
     </head>
-      <body>
+      <body onload="init()">
         <h1>Enter search query for book</h1>
+        <!--<input id="searchQuery" type="text" placeholder="War and Peace">-->
         <input id="searchQuery" type="text" placeholder="War and Peace">
         <button onclick="apiCall()">Get Recommendation</button>
 
