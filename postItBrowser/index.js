@@ -1,3 +1,13 @@
+function sendToEmail() {
+    //we need to find an email provider which will send emails in specific format. 
+    //we will not be spamming hopefully (free tier)
+
+}
+
+function deleteSpecificNode() {
+    console.log('I have clicked on an Element! We can soon figure out which element!')
+}
+
 function populate() {
     let size = window.localStorage.getItem(0 + '')
     if(size == null) {
