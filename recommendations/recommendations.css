@@ -2,8 +2,13 @@
     background-color: whitesmoke;
 }
 
+#getReco {
+    text-align: right;
+}
+
 h1 {
     font-family: Arial;
+    text-align: center;
 }
 
 button {
@@ -11,15 +16,13 @@ button {
 }
 
 input {
-    /* size: 100; */
     width: 15%;
     font-family: Arial;
-    text-align: center;
 }
 
 body {
     font-family: Arial;
-    text-align: center;
     font-size: 20px;
+    text-align: center;
 }
 

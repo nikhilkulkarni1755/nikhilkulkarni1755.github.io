@@ -6,6 +6,7 @@ function sendToEmail() {
 
 function deleteSpecificNode() {
     console.log('I have clicked on an Element! We can soon figure out which element!')
+    
 }
 
 function populate() {

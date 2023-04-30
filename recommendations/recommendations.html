@@ -8,8 +8,9 @@
       <body onload="init()">
         <h1>Enter search query for book</h1>
         <!--<input id="searchQuery" type="text" placeholder="War and Peace">-->
-        <input id="searchQuery" type="text" placeholder="War and Peace">
-        <button onclick="apiCall()">Get Recommendation</button>
+        <input id="searchQuery" type="text">
+        <button id="search" onclick="apiCall()">Search</button>
+        <button id="getReco">Get Recommendations</button> 
 
         <div id="content"></div>
         <div id="recommendations"></div>
