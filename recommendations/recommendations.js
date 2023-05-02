@@ -43,6 +43,10 @@ function isAuthor(author) {
         }
     }
 
+    // Here we go thru and check which names pops out the most. That name will give us more recommendations
+
+    
+
     console.log('Or above is not printing out!')
     
     return true;
@@ -50,6 +54,8 @@ function isAuthor(author) {
 
 function apiCall() {
     var query = document.getElementById("searchQuery").value
+    
+    //if query is empty, we use the query randomly chosen to be the placeholder text
     if(query == '') {
         query = defQuery
     }
@@ -83,12 +89,36 @@ function apiCall() {
 
             var author = []
             document.getElementById("content").innerHTML += "<br>Number of results: " + Object.keys(text.items).length
+            var counter = 1
+            var undefinedItems = []
             for(var i = 0; i < Object.keys(text.items).length; i++) {
-                document.getElementById("content").innerHTML += "<br>" + (i+1) + ")" + text.items[i].volumeInfo.title + "<br>"
+
+                //if anything undefined, move it into array. After this list is done, print the undefined list
+                if(text.items[i].volumeInfo.title == undefined || text.items[i].volumeInfo.authors == undefined || text.items[i].volumeInfo.description == undefined || text.items[i].volumeInfo.publisher == undefined) {
+                    var undefinedBook = {title: text.items[i].volumeInfo.title, authors: text.items[i].volumeInfo.authors, description: text.items[i].volumeInfo.description, publisher: text.items[i].volumeInfo.publisher}
+                    console.log("Printing out undefined below!")
+                    console.log(undefinedBook)
+                    undefinedItems.push(undefinedBook)
+                    continue
+                }
+
+                document.getElementById("content").innerHTML += "<br>" + counter + ")" + text.items[i].volumeInfo.title + "<br>"
                 document.getElementById("content").innerHTML += "<br>" + text.items[i].volumeInfo.authors + "<br>"
                 author.push(text.items[i].volumeInfo.authors)
-                document.getElementById("content").innerHTML += "<br>" + text.items[i].volumeInfo.description + "<br>" + "<br>" + "<br>"
+                document.getElementById("content").innerHTML += "<br>" + text.items[i].volumeInfo.description + "<br>"
+                document.getElementById("content").innerHTML += "<br>" + text.items[i].volumeInfo.publisher + "<br>" + "<br>" + "<br>"
+                counter++
             }
+            if(undefinedItems.length > 0) {
+                for(var i = 0; i < undefinedItems.length; i++) {
+                    document.getElementById("content").innerHTML += "<br>" + counter + ")" + undefinedItems[i].title + "<br>"
+                    document.getElementById("content").innerHTML += "<br>" + undefinedItems[i].authors + "<br>"
+                    document.getElementById("content").innerHTML += "<br>" + undefinedItems[i].description + "<br>"
+                    document.getElementById("content").innerHTML += "<br>" + undefinedItems[i].publisher + "<br>" + "<br>" + "<br>"
+    
+                }
+            }
+            
             if(isAuthor(author)) {
                 console.log("Found author!")
             }
