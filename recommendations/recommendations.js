@@ -10,10 +10,15 @@
 //description
 
 let defQuery = ''
+let exampleTexts = ['The Idiot', 'The Alchemist', 'War And Peace', 'The Sun Also Rises', 'Anna Karenina', 'Storm of Swords', 'Goblet of Fire', 'Antigone', 'The Night Thoreau Spent in Jail', 'Rabindranath Tagore', 'The Picture of Dorian Gray']
 
 function init() {
-    let exampleTexts = ['The Idiot', 'The Alchemist', 'War And Peace', 'The Sun Also Rises', 'Anna Karenina', 'Storm of Swords', 'Goblet of Fire', 'Antigone', 'The Night Thoreau Spent in Jail', 'Rabindranath Tagore', 'The Picture of Dorian Gray']
+    let index = Math.floor(Math.random() * (exampleTexts.length - 0) + 0)
+    document.getElementById('searchQuery').placeholder = exampleTexts[index]
+    defQuery = exampleTexts[index]
+}
 
+function getRecommendations() {
     let index = Math.floor(Math.random() * (exampleTexts.length - 0) + 0)
     document.getElementById('searchQuery').placeholder = exampleTexts[index]
     defQuery = exampleTexts[index]
@@ -63,10 +68,12 @@ function apiCall() {
     document.getElementById("content").innerHTML = '';
     //document.getElementById("content").innerHTML += "<br>" + query
     //var apiQuery = "https://www.googleapis.com/books/v1/volumes?callback=handleResponse&q=" + query
-    var apiQuery = "https://www.googleapis.com/books/v1/volumes?maxResults=10&q=" + query
+    var apiQuery = "https://www.googleapis.com/books/v1/volumes?maxResults=20&q=" + query
     //https://www.googleapis.com/books/v1/volumes?q=""+inauthor:leo tolstoy
     //var apiQuery = "https://www.googleapis.com/books/v1/volumes?q=''+inauthor:" + query
-    document.getElementById("content").innerHTML += "<br>" + apiQuery
+    
+    //we don't need to show this anymore.
+    //document.getElementById("content").innerHTML += "<br>" + apiQuery
 
     const request = new XMLHttpRequest()
     request.open("GET", apiQuery)
@@ -115,7 +122,7 @@ function apiCall() {
                     document.getElementById("content").innerHTML += "<br>" + undefinedItems[i].authors + "<br>"
                     document.getElementById("content").innerHTML += "<br>" + undefinedItems[i].description + "<br>"
                     document.getElementById("content").innerHTML += "<br>" + undefinedItems[i].publisher + "<br>" + "<br>" + "<br>"
-    
+                    counter++
                 }
             }
             
