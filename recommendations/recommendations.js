@@ -109,11 +109,11 @@ function apiCall() {
                     continue
                 }
 
-                document.getElementById("info").innerHTML += "<br>" + counter + ")" + text.items[i].volumeInfo.title + "<br>"
-                document.getElementById("info").innerHTML += "<br>" + text.items[i].volumeInfo.authors + "<br>"
+                document.getElementById("content").innerHTML += "<br>" + counter + ")" + text.items[i].volumeInfo.title + "<br>"
+                document.getElementById("content").innerHTML += "<br>" + text.items[i].volumeInfo.authors + "<br>"
                 author.push(text.items[i].volumeInfo.authors)
-                document.getElementById("info").innerHTML += "<br>" + text.items[i].volumeInfo.description + "<br>"
-                document.getElementById("info").innerHTML += "<br>" + text.items[i].volumeInfo.publisher + "<br>" 
+                document.getElementById("content").innerHTML += "<br>" + text.items[i].volumeInfo.description + "<br>"
+                document.getElementById("content").innerHTML += "<br>" + text.items[i].volumeInfo.publisher + "<br>" 
                 document.getElementById("thumbnail").src = text.items[i].volumeInfo.imageLinks.thumbnail
                 counter++
             }
