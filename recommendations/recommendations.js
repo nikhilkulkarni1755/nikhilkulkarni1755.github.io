@@ -42,15 +42,15 @@ function isAuthor(author) {
 
     console.log('This is not printing out!')
 
+    document.getElementById("recommendations").innerHTML += "<br>" + "Some authors related to this search: " + "<br>"
     for(let i = 0; i < author.length; i++) {
         for(let j = 0; j < author[i]; j++) {
             console.log(author[i][j])
+            document.getElementById("recommendations").innerHTML += "<br>" + "" + author[i][j]
         }
     }
 
     // Here we go thru and check which names pops out the most. That name will give us more recommendations
-
-    
 
     console.log('Or above is not printing out!')
     
@@ -114,15 +114,15 @@ function apiCall() {
                 author.push(text.items[i].volumeInfo.authors)
                 document.getElementById("content").innerHTML += "<br>" + text.items[i].volumeInfo.description + "<br>"
                 document.getElementById("content").innerHTML += "<br>" + text.items[i].volumeInfo.publisher + "<br>" 
-                document.getElementById("thumbnail").src = text.items[i].volumeInfo.imageLinks.thumbnail
+                //document.getElementById("thumbnail").src = text.items[i].volumeInfo.imageLinks.thumbnail
                 counter++
             }
             if(undefinedItems.length > 0) {
                 for(var i = 0; i < undefinedItems.length; i++) {
-                    document.getElementById("info").innerHTML += "<br>" + counter + ")" + undefinedItems[i].title + "<br>"
-                    document.getElementById("info").innerHTML += "<br>" + undefinedItems[i].authors + "<br>"
-                    document.getElementById("info").innerHTML += "<br>" + undefinedItems[i].description + "<br>"
-                    document.getElementById("info").innerHTML += "<br>" + undefinedItems[i].publisher + "<br>" + "<br>" + "<br>"
+                    document.getElementById("content").innerHTML += "<br>" + counter + ")" + undefinedItems[i].title + "<br>"
+                    document.getElementById("content").innerHTML += "<br>" + undefinedItems[i].authors + "<br>"
+                    document.getElementById("content").innerHTML += "<br>" + undefinedItems[i].description + "<br>"
+                    document.getElementById("content").innerHTML += "<br>" + undefinedItems[i].publisher + "<br>" + "<br>" + "<br>"
                     counter++
                 }
             }
