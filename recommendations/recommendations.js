@@ -24,6 +24,12 @@ function getRecommendations() {
     defQuery = exampleTexts[index]
 }
 
+//remove authors who are spelled very similarly to the other authors
+//this should remove different spellings of the same person hopefully
+function commonLetters() {
+
+}
+
 function findMostOccuringAuthor(author) {
     const authorMap = new Map()
 
@@ -40,16 +46,26 @@ function findMostOccuringAuthor(author) {
     }
 
     //taken from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+    let popularAuthors = []
     let highest = -1
-    for (const [key, value] of authorMap) {
-        console.log(`${key} = ${value}`)
-        if(value > highest) {
-            highest = value
+    let highestAuthor = ""
+    if(authorMap.size >= 3) {
+        for(let i = 0; i < 3; i++) {
+            for (const [key, value] of authorMap) {
+                console.log(`${key} = ${value}`)
+                if(value > highest) {
+                    highest = value
+                    highestAuthor = key
+                } 
+            }
+            console.log("highestAuthor: " + highestAuthor + ", " + highest)
+            popularAuthors.push({author: highestAuthor, count: highest})
+            authorMap.delete(highestAuthor)
+            highest = -1
         }
-
-        
     }
-
+    
+    return popularAuthors
 }
 
 function isAuthor(author) {
@@ -70,7 +86,15 @@ function isAuthor(author) {
         }
     }
 
-    let authors = findMostOccuringAuthor(author)
+    let popularAuthors = findMostOccuringAuthor(author)
+    console.log("These are some popular authors: ")
+    document.getElementById("content").innerHTML += "<br>" + "Some popular authors mentioned above are:" +  "<br>"
+    for(let i = 0; i < popularAuthors.length; i++) {
+        console.log(popularAuthors[i].author + ", " + popularAuthors[i].count)
+        document.getElementById("content").innerHTML += "<br>" + popularAuthors[i].author + " is mentioned " + popularAuthors[i].count + " times!<br>"  
+    }
+
+      
 
     //console.log('This is not printing out!')
 
