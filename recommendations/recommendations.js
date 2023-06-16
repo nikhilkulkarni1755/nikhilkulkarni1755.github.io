@@ -24,24 +24,57 @@ function getRecommendations() {
     defQuery = exampleTexts[index]
 }
 
-function isAuthor(author) {
-    var count = 0
-    var counter = 0
+function findMostOccuringAuthor(author) {
+    const authorMap = new Map()
+
     for(let i = 0; i < author.length; i++) {
         for(let j = 0; j < author[i].length; j++) {
+            if(!authorMap.has(author[i][j])) {
+                authorMap.set(author[i][j], 1)
+            }
+            else {
+                var num = authorMap.get(author[i][j])
+                authorMap.set(author[i][j], ++num) //num++ doesn't work
+            }
+        }
+    }
+
+    //taken from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+    let highest = -1
+    for (const [key, value] of authorMap) {
+        console.log(`${key} = ${value}`)
+        if(value > highest) {
+            highest = value
+        }
+
+        
+    }
+
+}
+
+function isAuthor(author) {
+    var counter = 0
+    //for(let i = 0; i < author.length; i++) {
+    //    for(let j = 0; j < author[i].length; j++) {
+            //counter += 1
+            //console.log(counter + ") " + author[i][j])
+    //    }
+    //}
+
+    for(let i = 0; i < author.length; i++) {
+        for(let j = 0; j < author[i].length; j++) {
+            //author[i][j].toUpperCase()
             counter += 1
+            author[i][j] = author[i][j].toUpperCase() 
             console.log(counter + ") " + author[i][j])
         }
     }
 
-    for(let i = 0; i < author.length; i++) {
-        for(let j = 0; j < author[i]; j++) {
-            author[i][j].toUpperCase()
-        }
-    }
+    let authors = findMostOccuringAuthor(author)
 
-    console.log('This is not printing out!')
+    //console.log('This is not printing out!')
 
+    /*
     document.getElementById("recommendations").innerHTML += "<br>" + "Some authors related to this search: " + "<br>"
     for(let i = 0; i < author.length; i++) {
         for(let j = 0; j < author[i]; j++) {
@@ -49,6 +82,7 @@ function isAuthor(author) {
             document.getElementById("recommendations").innerHTML += "<br>" + "" + author[i][j]
         }
     }
+    */
 
     // Here we go thru and check which names pops out the most. That name will give us more recommendations
 

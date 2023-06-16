@@ -1,3 +1,13 @@
+window.onclick = e => {
+    //console.log(e.target.tagName)
+    
+    if(e.target.tagName == "DIV" && !e.target.innerHTML.includes('<!--<textarea id=')) {
+        console.log(e.target.innerHTML)
+    }
+    
+    
+}
+
 function sendToEmail() {
     //we need to find an email provider which will send emails in specific format. 
     //we will not be spamming hopefully (free tier)
@@ -51,6 +61,7 @@ function populate() {
         console.log('size is ' + size)
         console.log('size is 0')
     }
+    //brings text cursor back to the textarea
     document.getElementById("postIt").focus()   
 }
 
