@@ -153,6 +153,10 @@ function apiCall() {
             //Object.keys(myObject).length
 
             var author = []
+            var title = []
+            var description = []
+            var publisher = []
+
             document.getElementById("content").innerHTML += "<br>Number of results: " + Object.keys(text.items).length
             var counter = 1
             var undefinedItems = []
@@ -166,12 +170,16 @@ function apiCall() {
                     undefinedItems.push(undefinedBook)
                     continue
                 }
-
+                author.push(text.items[i].volumeInfo.authors)
+                title.push(text.items[i].volumeInfo.title)
+                description.push(text.items[i].volumeInfo.description)
+                publisher.push(text.items[i].volumeInfo.publisher)
+                /*
                 document.getElementById("content").innerHTML += "<br>" + counter + ")" + text.items[i].volumeInfo.title + "<br>"
                 document.getElementById("content").innerHTML += "<br>" + text.items[i].volumeInfo.authors + "<br>"
-                author.push(text.items[i].volumeInfo.authors)
                 document.getElementById("content").innerHTML += "<br>" + text.items[i].volumeInfo.description + "<br>"
                 document.getElementById("content").innerHTML += "<br>" + text.items[i].volumeInfo.publisher + "<br>" 
+                */
                 //document.getElementById("thumbnail").src = text.items[i].volumeInfo.imageLinks.thumbnail
                 counter++
             }
