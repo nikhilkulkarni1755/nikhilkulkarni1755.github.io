@@ -7,9 +7,18 @@ clickableElement.addEventListener("click", function(e) {
 })
 */
 
+//let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click'
+
+window.ontouchstart = e => {
+    clicked(e)
+}
+
 window.onclick = e => {
     //console.log(e.target.tagName)
+    clicked(e)
+}
 
+function clicked(e) {
     if(e.target.tagName == "DIV" && !e.target.innerHTML.includes('<!--<textarea id=')) {
         console.log("e.target.innerHTML: " + e.target.innerHTML)
         let txt = e.target.innerHTML
@@ -25,10 +34,13 @@ window.onclick = e => {
                 }
             }
         }
+        else {
+            console.log("User didn't want to delete specific note")
+        }
     }
-    
-    
 }
+
+
 
 function sendToEmail() {
     //we need to find an email provider which will send emails in specific format. 

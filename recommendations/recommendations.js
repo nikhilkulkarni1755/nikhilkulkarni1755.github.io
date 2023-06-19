@@ -88,10 +88,10 @@ function isAuthor(author) {
 
     let popularAuthors = findMostOccuringAuthor(author)
     console.log("These are some popular authors: ")
-    document.getElementById("content").innerHTML += "<br>" + "Some popular authors mentioned above are:" +  "<br>"
+    document.getElementById("recommendations").innerHTML += "<br>" + "Some popular authors mentioned above are:" +  "<br>"
     for(let i = 0; i < popularAuthors.length; i++) {
         console.log(popularAuthors[i].author + ", " + popularAuthors[i].count)
-        document.getElementById("content").innerHTML += "<br>" + popularAuthors[i].author + " is mentioned " + popularAuthors[i].count + " times!<br>"  
+        document.getElementById("recommendations").innerHTML += "<br>" + popularAuthors[i].author + " is mentioned " + popularAuthors[i].count + " times!<br>"  
     }
 
       
