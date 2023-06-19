@@ -32,10 +32,9 @@ function commonLetters() {
 
 function findMostOccuringAuthor(author) {
     const authorMap = new Map()
-
-    for(let i = 0; i < author.length; i++) {
-        for(let j = 0; j < author[i].length; j++) {
-            if(!authorMap.has(author[i][j])) {
+    for (let i = 0; i < author.length; i++) {
+        for (let j = 0; j < author[i].length; j++) {
+            if (!authorMap.has(author[i][j])) {
                 authorMap.set(author[i][j], 1)
             }
             else {
@@ -49,22 +48,21 @@ function findMostOccuringAuthor(author) {
     let popularAuthors = []
     let highest = -1
     let highestAuthor = ""
-    if(authorMap.size >= 3) {
-        for(let i = 0; i < 3; i++) {
+    if (authorMap.size >= 3) {
+        for (let i = 0; i < 3; i++) {
             for (const [key, value] of authorMap) {
                 console.log(`${key} = ${value}`)
-                if(value > highest) {
+                if (value > highest) {
                     highest = value
                     highestAuthor = key
-                } 
+                }
             }
             console.log("highestAuthor: " + highestAuthor + ", " + highest)
-            popularAuthors.push({author: highestAuthor, count: highest})
+            popularAuthors.push({ author: highestAuthor, count: highest })
             authorMap.delete(highestAuthor)
             highest = -1
         }
     }
-    
     return popularAuthors
 }
 
@@ -72,29 +70,26 @@ function isAuthor(author) {
     var counter = 0
     //for(let i = 0; i < author.length; i++) {
     //    for(let j = 0; j < author[i].length; j++) {
-            //counter += 1
-            //console.log(counter + ") " + author[i][j])
+    //counter += 1
+    //console.log(counter + ") " + author[i][j])
     //    }
     //}
-
-    for(let i = 0; i < author.length; i++) {
-        for(let j = 0; j < author[i].length; j++) {
+    for (let i = 0; i < author.length; i++) {
+        for (let j = 0; j < author[i].length; j++) {
             //author[i][j].toUpperCase()
             counter += 1
-            author[i][j] = author[i][j].toUpperCase() 
+            author[i][j] = author[i][j].toUpperCase()
             console.log(counter + ") " + author[i][j])
         }
     }
 
     let popularAuthors = findMostOccuringAuthor(author)
     console.log("These are some popular authors: ")
-    document.getElementById("recommendations").innerHTML += "<br>" + "Some popular authors mentioned above are:" +  "<br>"
-    for(let i = 0; i < popularAuthors.length; i++) {
+    document.getElementById("recommendations").innerHTML += "<br>" + "Some popular authors mentioned above are:" + "<br>"
+    for (let i = 0; i < popularAuthors.length; i++) {
         console.log(popularAuthors[i].author + ", " + popularAuthors[i].count)
-        document.getElementById("recommendations").innerHTML += "<br>" + popularAuthors[i].author + " is mentioned " + popularAuthors[i].count + " times!<br>"  
+        document.getElementById("recommendations").innerHTML += "<br>" + popularAuthors[i].author + " is mentioned " + popularAuthors[i].count + " times!<br>"
     }
-
-      
 
     //console.log('This is not printing out!')
 
@@ -111,15 +106,15 @@ function isAuthor(author) {
     // Here we go thru and check which names pops out the most. That name will give us more recommendations
 
     console.log('Or above is not printing out!')
-    
+
     return true;
 }
 
 function apiCall() {
     var query = document.getElementById("searchQuery").value
-    
+
     //if query is empty, we use the query randomly chosen to be the placeholder text
-    if(query == '') {
+    if (query == '') {
         query = defQuery
     }
     console.log(query)
@@ -129,7 +124,7 @@ function apiCall() {
     var apiQuery = "https://www.googleapis.com/books/v1/volumes?maxResults=20&q=" + query
     //https://www.googleapis.com/books/v1/volumes?q=""+inauthor:leo tolstoy
     //var apiQuery = "https://www.googleapis.com/books/v1/volumes?q=''+inauthor:" + query
-    
+
     //we don't need to show this anymore.
     //document.getElementById("content").innerHTML += "<br>" + apiQuery
 
@@ -137,7 +132,7 @@ function apiCall() {
     request.open("GET", apiQuery)
     request.send()
     request.onload = () => {
-        if(request.status == 200) {
+        if (request.status == 200) {
             //document.getElementById("content").innerHTML += "<br>" + request.responseText
             var text = JSON.parse(request.responseText)
             //console.log(text)
@@ -149,7 +144,6 @@ function apiCall() {
             //document.getElementById("content").innerHTML += "<br>" + text.items[0].volumeInfo.authors
             //document.getElementById("content").innerHTML += "<br>" + text.items[0].volumeInfo.description
 
-
             //Object.keys(myObject).length
 
             var author = []
@@ -160,11 +154,11 @@ function apiCall() {
             document.getElementById("content").innerHTML += "<br>Number of results: " + Object.keys(text.items).length
             var counter = 1
             var undefinedItems = []
-            for(var i = 0; i < Object.keys(text.items).length; i++) {
+            for (var i = 0; i < Object.keys(text.items).length; i++) {
 
                 //if anything undefined, move it into array. After this list is done, print the undefined list
-                if(text.items[i].volumeInfo.title == undefined || text.items[i].volumeInfo.authors == undefined || text.items[i].volumeInfo.description == undefined || text.items[i].volumeInfo.publisher == undefined) {
-                    var undefinedBook = {title: text.items[i].volumeInfo.title, authors: text.items[i].volumeInfo.authors, description: text.items[i].volumeInfo.description, publisher: text.items[i].volumeInfo.publisher}
+                if (text.items[i].volumeInfo.title == undefined || text.items[i].volumeInfo.authors == undefined || text.items[i].volumeInfo.description == undefined || text.items[i].volumeInfo.publisher == undefined) {
+                    var undefinedBook = { title: text.items[i].volumeInfo.title, authors: text.items[i].volumeInfo.authors, description: text.items[i].volumeInfo.description, publisher: text.items[i].volumeInfo.publisher }
                     console.log("Printing out undefined below!")
                     console.log(undefinedBook)
                     undefinedItems.push(undefinedBook)
@@ -183,19 +177,18 @@ function apiCall() {
                 document.getElementById("content").innerHTML += "<br>" + text.items[i].volumeInfo.publisher + "<br>" 
                 */
                 //document.getElementById("thumbnail").src = text.items[i].volumeInfo.imageLinks.thumbnail
-                
             }
 
             console.log("Printing out the list of authors which were pushed here: ")
-            for(let i = 0; i < author.length; i++) {
+            for (let i = 0; i < author.length; i++) {
                 console.log(author[i])
             }
 
-            if(isAuthor(author)) {
+            if (isAuthor(author)) {
                 console.log("Found author!")
             }
 
-            for(var i = 0; i < author.length; i++) {
+            for (var i = 0; i < author.length; i++) {
                 document.getElementById("content").innerHTML += "<br>" + counter + ")" + title[i] + "<br>"
                 document.getElementById("content").innerHTML += "<br>" + author[i] + "<br>"
                 document.getElementById("content").innerHTML += "<br>" + description[i] + "<br>"
@@ -203,9 +196,8 @@ function apiCall() {
                 counter++
             }
 
-
-            if(undefinedItems.length > 0) {
-                for(var i = 0; i < undefinedItems.length; i++) {
+            if (undefinedItems.length > 0) {
+                for (var i = 0; i < undefinedItems.length; i++) {
                     document.getElementById("content").innerHTML += "<br>" + counter + ")" + undefinedItems[i].title + "<br>"
                     document.getElementById("content").innerHTML += "<br>" + undefinedItems[i].authors + "<br>"
                     document.getElementById("content").innerHTML += "<br>" + undefinedItems[i].description + "<br>"
@@ -213,9 +205,6 @@ function apiCall() {
                     counter++
                 }
             }
-            
-            
-
         }
         else {
             document.getElementById("content").innerHTML = "<br>" + request.status + ", Try again"
