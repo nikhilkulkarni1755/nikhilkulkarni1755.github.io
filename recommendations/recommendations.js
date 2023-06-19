@@ -31,6 +31,7 @@ function commonLetters() {
 }
 
 function findMostOccuringAuthor(author) {
+    document.getElementById("recommendations").innerHTML = '';
     const authorMap = new Map()
     for (let i = 0; i < author.length; i++) {
         for (let j = 0; j < author[i].length; j++) {
