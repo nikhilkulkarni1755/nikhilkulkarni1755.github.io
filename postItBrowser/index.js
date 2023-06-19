@@ -1,8 +1,30 @@
+/*
+var clickableElement = document.getElementById("post")
+clickableElement.addEventListener("click", function(e) {
+    if(e.target.tagName == "DIV" && !e.target.innerHTML.includes('<!--<textarea id=')) {
+        console.log("e.target.innerHTML: " + e.target.innerHTML)
+    }
+})
+*/
+
 window.onclick = e => {
     //console.log(e.target.tagName)
-    
+
     if(e.target.tagName == "DIV" && !e.target.innerHTML.includes('<!--<textarea id=')) {
-        console.log(e.target.innerHTML)
+        console.log("e.target.innerHTML: " + e.target.innerHTML)
+        let txt = e.target.innerHTML
+        if(confirm("delete this note? (" + txt + ")")) {
+            let size = Math.floor(window.localStorage.getItem(0 + ''))
+            console.log("size: " + size)
+            for(let i = 1; i <= size; i++) {
+                console.log("window: " + window.localStorage.getItem(i+''))
+                console.log("txt: " + txt)
+                if(window.localStorage.getItem(i + '') === txt) {
+                    console.log(window.localStorage.getItem(i+'') + "===" + txt)
+                    window.localStorage.removeItem(i + '')
+                }
+            }
+        }
     }
     
     
@@ -42,7 +64,7 @@ function populate() {
             clone.innerHTML = window.localStorage.getItem(i + '');
             console.log('innerHTML for ' + i + 'is: ' + clone.innerHTML)
             var color = Math.floor(Math.random() * 3)
-            console.log(color)
+            //console.log(color)
             if(color == 0) {
                 clone.style.backgroundColor = "lightgreen"
             }
