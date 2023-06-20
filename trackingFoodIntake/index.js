@@ -9,3 +9,13 @@ function trackCalories() {
     console.log(mealType)
     document.getElementById("totalCalories").innerHTML = date + ", " + mealType;
 }
+
+//save the data locally within local Storage
+function saveLocally() {
+
+}
+
+//plot the graph for weekly calorie intake
+function plot() {
+
+}
