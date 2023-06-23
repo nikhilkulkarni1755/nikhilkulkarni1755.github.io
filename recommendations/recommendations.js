@@ -27,7 +27,7 @@ function getRecommendations() {
 //remove authors who are spelled very similarly to the other authors
 //this should remove different spellings of the same person hopefully
 function commonLetters() {
-
+    
 }
 
 function findMostOccuringAuthor(author) {
