@@ -18,8 +18,16 @@ function saveLocally(number, post) {
     populate()
 }
 
+/*
+    mm/dd/yyyymealType, "mealType"
+    mm/dd/yyyycalories, x calories
+    mm/dd/yyyyfoodName, "foodName"
+*/
 function postData() {
+    date = document.getElementById("dateInput").value
+    mealType = document.getElementById("mealType").value
     calories = document.getElementById("calories").value
+    foodName = document.getElementById("foodName").value
     //document.getElementById("postIt").value = ""
     //console.log(post)
     //let clone = document.getElementById("post").cloneNode(true);
