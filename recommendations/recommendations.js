@@ -26,7 +26,7 @@ function getRecommendations() {
 
 //remove authors who are spelled very similarly to the other authors
 //this should remove different spellings of the same person hopefully
-function commonLetters() {
+function commonLetters(authors) {
     
 }
 
@@ -49,8 +49,8 @@ function findMostOccuringAuthor(author) {
     let popularAuthors = []
     let highest = -1
     let highestAuthor = ""
-    if (authorMap.size >= 3) {
-        for (let i = 0; i < 3; i++) {
+    if (authorMap.size >= 5) {
+        for (let i = 0; i < 5; i++) {
             for (const [key, value] of authorMap) {
                 console.log(`${key} = ${value}`)
                 if (value > highest) {
@@ -85,6 +85,7 @@ function isAuthor(author) {
     }
 
     let popularAuthors = findMostOccuringAuthor(author)
+    popularAuthors = commonLetters(popularAuthors)
     console.log("These are some popular authors: ")
     document.getElementById("recommendations").innerHTML += "<br>" + "Some popular authors mentioned above are:" + "<br>"
     for (let i = 0; i < popularAuthors.length; i++) {
