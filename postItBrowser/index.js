@@ -26,6 +26,17 @@ function clicked(e) {
         }
         else {
             console.log("User didn't want to delete specific note")
+            if(confirm("Copy note?")) {
+                const copy = async() => {
+                    try {
+                        await navigator.clipboard.writeText(txt)
+                        console.log("awaiting here")
+                    }
+                    catch(err) {
+                        console.log("Couldn't copy")
+                    }
+                }
+            }
         }
     }
 }
