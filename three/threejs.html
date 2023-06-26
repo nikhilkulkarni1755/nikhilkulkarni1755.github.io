@@ -1,106 +1,124 @@
 <html>
 
-	<head>
+<head>
 
-		<title> Three.js Practice </title>
+	<title> Three.js Practice </title>
 
-		<style>
-			body {margin: 0;}
-			canvas {display: block;}
-		</style>
+	<style>
+		body {
+			margin: 0;
+		}
 
-	</head>
+		canvas {
+			display: block;
+		}
+	</style>
 
-	<body>
+</head>
 
-		<script src="js/three.js"></script>
+<body>
 
-		<script>
+	<script src="js/three.js"></script>
 
-			//SCENE
-			var scene = new THREE.Scene();
+	<script>
 
-			//camera
-			var camera = new THREE.PerspectiveCamera(
-				75, 
-				window.innerWidth/window.innerHeight,
-				 .1,
-				 1000
-			);
+		//SCENE
+		var scene = new THREE.Scene();
 
-			//camera positioning. By default (if not mentioned), position will be 0,0,0
-			camera.position.x = 0
-			camera.position.y = 0
-			camera.position.z = 5
+		//camera
+		var camera = new THREE.PerspectiveCamera(
+			75,
+			window.innerWidth / window.innerHeight,
+			.1,
+			1000
+		);
 
-			//renderer
-			var renderer = new THREE.WebGLRenderer(); //new THREE.WebGLRenderer({antialias: true});
+		//camera positioning. By default (if not mentioned), position will be 0,0,0
+		camera.position.x = 0
+		camera.position.y = 0
+		camera.position.z = 5
 
-			//clear color, grey. 
-			//renderer.setClearColor("#e5e5e5")
+		//renderer
+		var renderer = new THREE.WebGLRenderer(); //new THREE.WebGLRenderer({antialias: true});
 
-			//black background
-			renderer.setClearColor("#000000")
+		//clear color, grey. 
+		//renderer.setClearColor("#e5e5e5")
 
-			//setSize of renderer
-			renderer.setSize(window.innerWidth, window.innerHeight);
+		//black background
+		renderer.setClearColor("#000000")
 
-			//append
-			document.body.appendChild(renderer.domElement);
+		//setSize of renderer
+		renderer.setSize(window.innerWidth, window.innerHeight);
 
-			//this currently doesn't resize, will add below
-			window.addEventListener('resize', () => {
-				renderer.setSize(window.innerWidth, window.innerHeight)
-				camera.aspect = window.innerWidth/window.innerHeight
-				camera.updateProjectionMatrix()
-			})
+		//append
+		document.body.appendChild(renderer.domElement);
+
+		//this currently doesn't resize, will add below
+		window.addEventListener('resize', () => {
+			renderer.setSize(window.innerWidth, window.innerHeight)
+			camera.aspect = window.innerWidth / window.innerHeight
+			camera.updateProjectionMatrix()
+		})
 
 
-			var geometry = new THREE.BoxBufferGeometry(1, 1, 1);
-			var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
-			var mesh = new THREE.Mesh(geometry, material);
-			mesh.position.set(2, 2, 0);
+		var geometry = new THREE.BoxBufferGeometry(1, 1, 1);
+		var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+		var mesh = new THREE.Mesh(geometry, material);
+		mesh.position.set(2, 2, 0);
 
-               //scene.add(mesh);
+		//scene.add(mesh);
 
-               //var geometry2 = new THREE.SphereGeometry(1, 4, 10);
-               //var material2 = new THREE.Mesh.LambertMaterial({color: 0xFFCC00});
+		//var geometry2 = new THREE.SphereGeometry(1, 4, 10);
+		//var material2 = new THREE.Mesh.LambertMaterial({color: 0xFFCC00});
 
-              		var material2 = new THREE.MeshBasicMaterial({color: 0xff0000});
-               		var mesh2 = new THREE.Mesh(geometry, material2);
-               		mesh2.position.set(-2, -2, 0);
+		var material2 = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+		var mesh2 = new THREE.Mesh(geometry, material2);
+		mesh2.position.set(-2, -2, 0);
 
-               		var material3 = new THREE.MeshBasicMaterial({color: 0x0000ff});
-               		var mesh3 = new THREE.Mesh(geometry, material3);
-               		mesh3.position.set(0, 0, 0);
+		var material3 = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+		var mesh3 = new THREE.Mesh(geometry, material3);
+		mesh3.position.set(0, 0, 0);
 
-               		var group = new THREE.Group();
-               		group.add(mesh);
-               		group.add(mesh2);
-               		group.add(mesh3);
+		var group = new THREE.Group();
+		group.add(mesh);
+		group.add(mesh2);
+		group.add(mesh3);
 
-               		scene.add(group);
+		scene.add(group);
 
-               		//camera.position.z = (5);
+		//camera.position.z = (5);
 
-               		var animate = function() {
-                    		requestAnimationFrame(animate);
+		function onMouseMove(event) {
+			event.preventDefault()
 
-                    		mesh.rotation.x += .01;
-                    		mesh.rotation.y += .01;
+			raycaster.setFromCamera(mouse, camera)
 
-                    		mesh2.rotation.x += .01;
-                    		mesh2.rotation.y += .01;
+			var intersects = raycaster.intersectObjects(scene.children, true)
+			for (var i = 0; i < intersects.length; i++) {
+				intersects[i].object.material.color.set(0xff0000)
+			}
+		}
 
-                    		mesh3.rotation.x += .01;
-                   		mesh3.rotation.y += .01;
+		var animate = function () {
+			requestAnimationFrame(animate);
 
-                    		renderer.render(scene,camera);
-               		}
+			mesh.rotation.x += .01;
+			mesh.rotation.y += .01;
 
-               		animate();
-		</script>
+			mesh2.rotation.x += .01;
+			mesh2.rotation.y += .01;
 
-     	</body>
+			mesh3.rotation.x += .01;
+			mesh3.rotation.y += .01;
+
+			renderer.render(scene, camera);
+		}
+
+		animate();
+
+		window.addEventListener('mousemove', onMouseMove)
+	</script>
+
+</body>
 
 </html>

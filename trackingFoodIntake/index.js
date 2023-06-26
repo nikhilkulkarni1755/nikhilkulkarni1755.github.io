@@ -28,6 +28,8 @@ function postData() {
     mealType = document.getElementById("mealType").value
     calories = document.getElementById("calories").value
     foodName = document.getElementById("foodName").value
+
+    saveLocally()
     //document.getElementById("postIt").value = ""
     //console.log(post)
     //let clone = document.getElementById("post").cloneNode(true);
