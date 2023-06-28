@@ -26,6 +26,7 @@ function clicked(e) {
         }
         else {
             console.log("User didn't want to delete specific note")
+            /*
             if(confirm("Copy note?")) {
                 const copy = async() => {
                     try {
@@ -36,7 +37,8 @@ function clicked(e) {
                         console.log("Couldn't copy")
                     }
                 }
-            }
+            } 
+            */
         }
     }
 }
