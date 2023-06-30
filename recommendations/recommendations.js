@@ -27,7 +27,7 @@ function getRecommendations() {
 //remove authors who are spelled very similarly to the other authors
 //this should remove different spellings of the same person hopefully
 function commonLetters(authors) {
-    
+    return authors.slice(0,3)
 }
 
 function findMostOccuringAuthor(author) {
@@ -85,12 +85,12 @@ function isAuthor(author) {
     }
 
     let popularAuthors = findMostOccuringAuthor(author)
-    popularAuthors = commonLetters(popularAuthors)
+    let popularAuthorsList = commonLetters(popularAuthors)
     console.log("These are some popular authors: ")
     document.getElementById("recommendations").innerHTML += "<br>" + "Some popular authors mentioned above are:" + "<br>"
-    for (let i = 0; i < popularAuthors.length; i++) {
-        console.log(popularAuthors[i].author + ", " + popularAuthors[i].count)
-        document.getElementById("recommendations").innerHTML += "<br>" + popularAuthors[i].author + " is mentioned " + popularAuthors[i].count + " times!<br>"
+    for (let i = 0; i < popularAuthorsList.length; i++) {
+        console.log(popularAuthorsList[i].author + ", " + popularAuthorsList[i].count)
+        document.getElementById("recommendations").innerHTML += "<br>" + popularAuthorsList[i].author + " is mentioned " + popularAuthorsList[i].count + " times!<br>"
     }
 
     //console.log('This is not printing out!')
