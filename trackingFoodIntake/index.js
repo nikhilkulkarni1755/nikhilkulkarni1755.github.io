@@ -11,11 +11,20 @@ function trackCalories() {
 }
 
 //save the data locally within local Storage
-function saveLocally(number, post) {
+function saveLocally(date, mealType, calories, foodName) {
+
+
     //console.log('storing in ' + number)
-    window.localStorage.setItem(number + '', post)
+    //window.localStorage.setItem(number + '', post)
+
+    window.localStorage.setItem(date + '', mealType + "/" + calories + "/" + foodName)
+    
+    //can we change items? I think we can
+
+    //we need to add multiple food mealtimes per day. how can we make it efficient?
+
     //clearScreen()
-    populate()
+    //populate()
 }
 
 /*
@@ -24,12 +33,15 @@ function saveLocally(number, post) {
     mm/dd/yyyyfoodName, "foodName"
 */
 function postData() {
+
+    //let size = window.localStorage.getItem(0 + '')
+
     date = document.getElementById("dateInput").value
     mealType = document.getElementById("mealType").value
     calories = document.getElementById("calories").value
     foodName = document.getElementById("foodName").value
 
-    saveLocally()
+    saveLocally(date, mealType, calories, foodName)
     //document.getElementById("postIt").value = ""
     //console.log(post)
     //let clone = document.getElementById("post").cloneNode(true);
@@ -51,6 +63,10 @@ function postData() {
     //window.localStorage.setItem(0 + '', size)
 
     saveLocally(size, post)
+}
+
+function populate() {
+    
 }
 
 //plot the graph for weekly calorie intake
