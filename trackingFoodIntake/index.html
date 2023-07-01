@@ -15,18 +15,26 @@
         <h1>Track Your Calories</h1>
 
         <div>
+            
+            <label>Date:</label>
             <input id="dateInput" type="date"><br><br>
+            
+            <label>Time of meal:</label>
             <select id="mealType">
                 <option value="breakfast">Breakfast</option>
                 <option value="lunch">Lunch</option>
                 <option value="dinner">Dinner</option>
                 <option value="snack">Snack</option>
             </select><br><br>
+            
             <label>Name of Food Item:</label>
             <input id="foodName"type="text"><br><br>
+            
             <label>Calories:</label>
             <input id="calories" type="number"><br><br>
+            
             <input type="submit" onclick="trackCalories()">
+            
         </div>
 
         <div id="totalCalories">
@@ -37,7 +45,7 @@
         <div>
             <!--
                 Here we add a clickable calendar, to go thru days and check what we ate on prev days
-                
+
 
             -->
         </div>

@@ -41,6 +41,11 @@ function postData() {
     calories = document.getElementById("calories").value
     foodName = document.getElementById("foodName").value
 
+    //convert date to usable string
+    //we can do so by making the key just
+    //6302023
+    //take out all the slashes and all
+
     saveLocally(date, mealType, calories, foodName)
     //document.getElementById("postIt").value = ""
     //console.log(post)
@@ -66,7 +71,16 @@ function postData() {
 }
 
 function populate() {
-    
+    //2023-06-30
+
+    let date = new Date()
+    console.log(date)
+    getData(date)
+}
+
+function getData(date) {
+    console.log('window.get: ' + window.localStorage.getItem(date+''))
+    document.getElementById("totalCalories").innerHTML = window.localStorage.getItem(date+'')
 }
 
 //plot the graph for weekly calorie intake
