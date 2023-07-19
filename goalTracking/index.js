@@ -32,8 +32,15 @@ function calculateDays() {
 
   console.log(year + ", " + month + ", " + days)
 
-//   let clone = document.getElementById("day").cloneNode(true)
+  
 //   clone.innerHTML = window.localStorage.getItem(0 + '')
-//   document.getElementById("day").appendChild(clone)
+//   for(var i = 0; i < days; i++) {
+//     let clone = document.getElementById("day").cloneNode(true)
+//     clone.innerHTML = i + ""
+//     document.getElementById("day").appendChild(clone)  
+//     document.getElementById("day").insertBefore(clone, document.getElementById("day").firstChild)
+//   }
+
+
 
 }
