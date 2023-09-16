@@ -32,18 +32,23 @@
 
 </body>
 
-<p id="ip"></p>
+<p id="ip" onload="getIp()"></p>
 <script type="application/javascript">
-function getIP(json) {
-	var ip = "Welcome, you are joining from " + json.ip + ", " + json.city + ", " + json.region + ", " + json.country;
-	//var ip = "hi";
-	document.getElementById("ip").innerHTML = ip;
-}
+	async function getIp() {
+		var url = 'https://angular-node-project-398119.uc.r.appspot.com/ip'
+		var response = await fetch(url)
+		console.log(response)
+		document.getElementById("ip").innerHTML = 'Welcome from ' + response
+	}
 
-//document.getElementById("ip").innerHTML = ip;
+// function getIP(json) {
+// 	var ip = "Welcome, you are joining from " + json.ip + ", " + json.city + ", " + json.region + ", " + json.country;
+// 	//var ip = "hi";
+// 	document.getElementById("ip").innerHTML = ip;
+// }
 </script>
 
-<script type="application/javascript" src="https://ipinfo.io/?format=jsonp&callback=getIP"></script>
+<!-- <script type="application/javascript" src="https://ipinfo.io/?format=jsonp&callback=getIP"></script> -->
 
 <p id="source"> IP info found using <a id="info" href="https://ipinfo.io/developers">IP INFO</a> </p>
 <body>
